@@ -1,0 +1,8895 @@
+USE airline_analytics;
+SET autocommit = 0;
+
+
+-- ============================
+-- 1987-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1987-10-01'
+  AND flight_date <  '1987-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1987-10-01'
+  AND sf.flight_date <  '1987-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1987-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1987-11-01'
+  AND flight_date <  '1987-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1987-11-01'
+  AND sf.flight_date <  '1987-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1987-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1987-12-01'
+  AND flight_date <  '1988-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1987-12-01'
+  AND sf.flight_date <  '1988-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-01-01'
+  AND flight_date <  '1988-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-01-01'
+  AND sf.flight_date <  '1988-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-02-01'
+  AND flight_date <  '1988-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-02-01'
+  AND sf.flight_date <  '1988-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-03-01'
+  AND flight_date <  '1988-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-03-01'
+  AND sf.flight_date <  '1988-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-04-01'
+  AND flight_date <  '1988-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-04-01'
+  AND sf.flight_date <  '1988-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-05-01'
+  AND flight_date <  '1988-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-05-01'
+  AND sf.flight_date <  '1988-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-06-01'
+  AND flight_date <  '1988-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-06-01'
+  AND sf.flight_date <  '1988-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-07-01'
+  AND flight_date <  '1988-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-07-01'
+  AND sf.flight_date <  '1988-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-08-01'
+  AND flight_date <  '1988-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-08-01'
+  AND sf.flight_date <  '1988-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-09-01'
+  AND flight_date <  '1988-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-09-01'
+  AND sf.flight_date <  '1988-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-10-01'
+  AND flight_date <  '1988-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-10-01'
+  AND sf.flight_date <  '1988-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-11-01'
+  AND flight_date <  '1988-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-11-01'
+  AND sf.flight_date <  '1988-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1988-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1988-12-01'
+  AND flight_date <  '1989-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1988-12-01'
+  AND sf.flight_date <  '1989-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-01-01'
+  AND flight_date <  '1989-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-01-01'
+  AND sf.flight_date <  '1989-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-02-01'
+  AND flight_date <  '1989-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-02-01'
+  AND sf.flight_date <  '1989-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-03-01'
+  AND flight_date <  '1989-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-03-01'
+  AND sf.flight_date <  '1989-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-04-01'
+  AND flight_date <  '1989-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-04-01'
+  AND sf.flight_date <  '1989-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-05-01'
+  AND flight_date <  '1989-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-05-01'
+  AND sf.flight_date <  '1989-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-06-01'
+  AND flight_date <  '1989-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-06-01'
+  AND sf.flight_date <  '1989-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-07-01'
+  AND flight_date <  '1989-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-07-01'
+  AND sf.flight_date <  '1989-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-08-01'
+  AND flight_date <  '1989-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-08-01'
+  AND sf.flight_date <  '1989-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-09-01'
+  AND flight_date <  '1989-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-09-01'
+  AND sf.flight_date <  '1989-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-10-01'
+  AND flight_date <  '1989-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-10-01'
+  AND sf.flight_date <  '1989-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-11-01'
+  AND flight_date <  '1989-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-11-01'
+  AND sf.flight_date <  '1989-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1989-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1989-12-01'
+  AND flight_date <  '1990-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1989-12-01'
+  AND sf.flight_date <  '1990-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-01-01'
+  AND flight_date <  '1990-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-01-01'
+  AND sf.flight_date <  '1990-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-02-01'
+  AND flight_date <  '1990-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-02-01'
+  AND sf.flight_date <  '1990-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-03-01'
+  AND flight_date <  '1990-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-03-01'
+  AND sf.flight_date <  '1990-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-04-01'
+  AND flight_date <  '1990-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-04-01'
+  AND sf.flight_date <  '1990-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-05-01'
+  AND flight_date <  '1990-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-05-01'
+  AND sf.flight_date <  '1990-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-06-01'
+  AND flight_date <  '1990-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-06-01'
+  AND sf.flight_date <  '1990-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-07-01'
+  AND flight_date <  '1990-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-07-01'
+  AND sf.flight_date <  '1990-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-08-01'
+  AND flight_date <  '1990-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-08-01'
+  AND sf.flight_date <  '1990-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-09-01'
+  AND flight_date <  '1990-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-09-01'
+  AND sf.flight_date <  '1990-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-10-01'
+  AND flight_date <  '1990-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-10-01'
+  AND sf.flight_date <  '1990-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-11-01'
+  AND flight_date <  '1990-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-11-01'
+  AND sf.flight_date <  '1990-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1990-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1990-12-01'
+  AND flight_date <  '1991-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1990-12-01'
+  AND sf.flight_date <  '1991-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-01-01'
+  AND flight_date <  '1991-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-01-01'
+  AND sf.flight_date <  '1991-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-02-01'
+  AND flight_date <  '1991-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-02-01'
+  AND sf.flight_date <  '1991-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-03-01'
+  AND flight_date <  '1991-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-03-01'
+  AND sf.flight_date <  '1991-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-04-01'
+  AND flight_date <  '1991-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-04-01'
+  AND sf.flight_date <  '1991-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-05-01'
+  AND flight_date <  '1991-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-05-01'
+  AND sf.flight_date <  '1991-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-06-01'
+  AND flight_date <  '1991-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-06-01'
+  AND sf.flight_date <  '1991-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-07-01'
+  AND flight_date <  '1991-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-07-01'
+  AND sf.flight_date <  '1991-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-08-01'
+  AND flight_date <  '1991-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-08-01'
+  AND sf.flight_date <  '1991-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-09-01'
+  AND flight_date <  '1991-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-09-01'
+  AND sf.flight_date <  '1991-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-10-01'
+  AND flight_date <  '1991-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-10-01'
+  AND sf.flight_date <  '1991-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-11-01'
+  AND flight_date <  '1991-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-11-01'
+  AND sf.flight_date <  '1991-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1991-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1991-12-01'
+  AND flight_date <  '1992-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1991-12-01'
+  AND sf.flight_date <  '1992-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-01-01'
+  AND flight_date <  '1992-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-01-01'
+  AND sf.flight_date <  '1992-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-02-01'
+  AND flight_date <  '1992-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-02-01'
+  AND sf.flight_date <  '1992-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-03-01'
+  AND flight_date <  '1992-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-03-01'
+  AND sf.flight_date <  '1992-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-04-01'
+  AND flight_date <  '1992-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-04-01'
+  AND sf.flight_date <  '1992-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-05-01'
+  AND flight_date <  '1992-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-05-01'
+  AND sf.flight_date <  '1992-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-06-01'
+  AND flight_date <  '1992-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-06-01'
+  AND sf.flight_date <  '1992-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-07-01'
+  AND flight_date <  '1992-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-07-01'
+  AND sf.flight_date <  '1992-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-08-01'
+  AND flight_date <  '1992-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-08-01'
+  AND sf.flight_date <  '1992-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-09-01'
+  AND flight_date <  '1992-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-09-01'
+  AND sf.flight_date <  '1992-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-10-01'
+  AND flight_date <  '1992-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-10-01'
+  AND sf.flight_date <  '1992-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-11-01'
+  AND flight_date <  '1992-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-11-01'
+  AND sf.flight_date <  '1992-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1992-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1992-12-01'
+  AND flight_date <  '1993-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1992-12-01'
+  AND sf.flight_date <  '1993-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-01-01'
+  AND flight_date <  '1993-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-01-01'
+  AND sf.flight_date <  '1993-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-02-01'
+  AND flight_date <  '1993-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-02-01'
+  AND sf.flight_date <  '1993-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-03-01'
+  AND flight_date <  '1993-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-03-01'
+  AND sf.flight_date <  '1993-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-04-01'
+  AND flight_date <  '1993-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-04-01'
+  AND sf.flight_date <  '1993-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-05-01'
+  AND flight_date <  '1993-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-05-01'
+  AND sf.flight_date <  '1993-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-06-01'
+  AND flight_date <  '1993-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-06-01'
+  AND sf.flight_date <  '1993-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-07-01'
+  AND flight_date <  '1993-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-07-01'
+  AND sf.flight_date <  '1993-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-08-01'
+  AND flight_date <  '1993-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-08-01'
+  AND sf.flight_date <  '1993-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-09-01'
+  AND flight_date <  '1993-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-09-01'
+  AND sf.flight_date <  '1993-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-10-01'
+  AND flight_date <  '1993-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-10-01'
+  AND sf.flight_date <  '1993-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-11-01'
+  AND flight_date <  '1993-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-11-01'
+  AND sf.flight_date <  '1993-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1993-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1993-12-01'
+  AND flight_date <  '1994-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1993-12-01'
+  AND sf.flight_date <  '1994-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-01-01'
+  AND flight_date <  '1994-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-01-01'
+  AND sf.flight_date <  '1994-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-02-01'
+  AND flight_date <  '1994-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-02-01'
+  AND sf.flight_date <  '1994-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-03-01'
+  AND flight_date <  '1994-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-03-01'
+  AND sf.flight_date <  '1994-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-04-01'
+  AND flight_date <  '1994-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-04-01'
+  AND sf.flight_date <  '1994-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-05-01'
+  AND flight_date <  '1994-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-05-01'
+  AND sf.flight_date <  '1994-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-06-01'
+  AND flight_date <  '1994-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-06-01'
+  AND sf.flight_date <  '1994-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-07-01'
+  AND flight_date <  '1994-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-07-01'
+  AND sf.flight_date <  '1994-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-08-01'
+  AND flight_date <  '1994-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-08-01'
+  AND sf.flight_date <  '1994-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-09-01'
+  AND flight_date <  '1994-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-09-01'
+  AND sf.flight_date <  '1994-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-10-01'
+  AND flight_date <  '1994-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-10-01'
+  AND sf.flight_date <  '1994-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-11-01'
+  AND flight_date <  '1994-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-11-01'
+  AND sf.flight_date <  '1994-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1994-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1994-12-01'
+  AND flight_date <  '1995-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1994-12-01'
+  AND sf.flight_date <  '1995-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-01-01'
+  AND flight_date <  '1995-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-01-01'
+  AND sf.flight_date <  '1995-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-02-01'
+  AND flight_date <  '1995-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-02-01'
+  AND sf.flight_date <  '1995-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-03-01'
+  AND flight_date <  '1995-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-03-01'
+  AND sf.flight_date <  '1995-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-04-01'
+  AND flight_date <  '1995-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-04-01'
+  AND sf.flight_date <  '1995-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-05-01'
+  AND flight_date <  '1995-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-05-01'
+  AND sf.flight_date <  '1995-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-06-01'
+  AND flight_date <  '1995-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-06-01'
+  AND sf.flight_date <  '1995-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-07-01'
+  AND flight_date <  '1995-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-07-01'
+  AND sf.flight_date <  '1995-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-08-01'
+  AND flight_date <  '1995-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-08-01'
+  AND sf.flight_date <  '1995-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-09-01'
+  AND flight_date <  '1995-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-09-01'
+  AND sf.flight_date <  '1995-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-10-01'
+  AND flight_date <  '1995-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-10-01'
+  AND sf.flight_date <  '1995-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-11-01'
+  AND flight_date <  '1995-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-11-01'
+  AND sf.flight_date <  '1995-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1995-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1995-12-01'
+  AND flight_date <  '1996-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1995-12-01'
+  AND sf.flight_date <  '1996-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-01-01'
+  AND flight_date <  '1996-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-01-01'
+  AND sf.flight_date <  '1996-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-02-01'
+  AND flight_date <  '1996-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-02-01'
+  AND sf.flight_date <  '1996-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-03-01'
+  AND flight_date <  '1996-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-03-01'
+  AND sf.flight_date <  '1996-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-04-01'
+  AND flight_date <  '1996-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-04-01'
+  AND sf.flight_date <  '1996-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-05-01'
+  AND flight_date <  '1996-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-05-01'
+  AND sf.flight_date <  '1996-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-06-01'
+  AND flight_date <  '1996-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-06-01'
+  AND sf.flight_date <  '1996-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-07-01'
+  AND flight_date <  '1996-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-07-01'
+  AND sf.flight_date <  '1996-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-08-01'
+  AND flight_date <  '1996-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-08-01'
+  AND sf.flight_date <  '1996-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-09-01'
+  AND flight_date <  '1996-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-09-01'
+  AND sf.flight_date <  '1996-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-10-01'
+  AND flight_date <  '1996-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-10-01'
+  AND sf.flight_date <  '1996-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-11-01'
+  AND flight_date <  '1996-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-11-01'
+  AND sf.flight_date <  '1996-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1996-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1996-12-01'
+  AND flight_date <  '1997-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1996-12-01'
+  AND sf.flight_date <  '1997-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-01-01'
+  AND flight_date <  '1997-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-01-01'
+  AND sf.flight_date <  '1997-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-02-01'
+  AND flight_date <  '1997-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-02-01'
+  AND sf.flight_date <  '1997-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-03-01'
+  AND flight_date <  '1997-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-03-01'
+  AND sf.flight_date <  '1997-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-04-01'
+  AND flight_date <  '1997-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-04-01'
+  AND sf.flight_date <  '1997-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-05-01'
+  AND flight_date <  '1997-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-05-01'
+  AND sf.flight_date <  '1997-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-06-01'
+  AND flight_date <  '1997-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-06-01'
+  AND sf.flight_date <  '1997-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-07-01'
+  AND flight_date <  '1997-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-07-01'
+  AND sf.flight_date <  '1997-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-08-01'
+  AND flight_date <  '1997-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-08-01'
+  AND sf.flight_date <  '1997-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-09-01'
+  AND flight_date <  '1997-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-09-01'
+  AND sf.flight_date <  '1997-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-10-01'
+  AND flight_date <  '1997-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-10-01'
+  AND sf.flight_date <  '1997-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-11-01'
+  AND flight_date <  '1997-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-11-01'
+  AND sf.flight_date <  '1997-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1997-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1997-12-01'
+  AND flight_date <  '1998-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1997-12-01'
+  AND sf.flight_date <  '1998-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-01-01'
+  AND flight_date <  '1998-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-01-01'
+  AND sf.flight_date <  '1998-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-02-01'
+  AND flight_date <  '1998-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-02-01'
+  AND sf.flight_date <  '1998-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-03-01'
+  AND flight_date <  '1998-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-03-01'
+  AND sf.flight_date <  '1998-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-04-01'
+  AND flight_date <  '1998-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-04-01'
+  AND sf.flight_date <  '1998-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-05-01'
+  AND flight_date <  '1998-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-05-01'
+  AND sf.flight_date <  '1998-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-06-01'
+  AND flight_date <  '1998-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-06-01'
+  AND sf.flight_date <  '1998-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-07-01'
+  AND flight_date <  '1998-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-07-01'
+  AND sf.flight_date <  '1998-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-08-01'
+  AND flight_date <  '1998-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-08-01'
+  AND sf.flight_date <  '1998-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-09-01'
+  AND flight_date <  '1998-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-09-01'
+  AND sf.flight_date <  '1998-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-10-01'
+  AND flight_date <  '1998-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-10-01'
+  AND sf.flight_date <  '1998-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-11-01'
+  AND flight_date <  '1998-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-11-01'
+  AND sf.flight_date <  '1998-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1998-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1998-12-01'
+  AND flight_date <  '1999-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1998-12-01'
+  AND sf.flight_date <  '1999-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-01-01'
+  AND flight_date <  '1999-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-01-01'
+  AND sf.flight_date <  '1999-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-02-01'
+  AND flight_date <  '1999-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-02-01'
+  AND sf.flight_date <  '1999-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-03-01'
+  AND flight_date <  '1999-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-03-01'
+  AND sf.flight_date <  '1999-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-04-01'
+  AND flight_date <  '1999-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-04-01'
+  AND sf.flight_date <  '1999-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-05-01'
+  AND flight_date <  '1999-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-05-01'
+  AND sf.flight_date <  '1999-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-06-01'
+  AND flight_date <  '1999-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-06-01'
+  AND sf.flight_date <  '1999-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-07-01'
+  AND flight_date <  '1999-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-07-01'
+  AND sf.flight_date <  '1999-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-08-01'
+  AND flight_date <  '1999-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-08-01'
+  AND sf.flight_date <  '1999-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-09-01'
+  AND flight_date <  '1999-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-09-01'
+  AND sf.flight_date <  '1999-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-10-01'
+  AND flight_date <  '1999-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-10-01'
+  AND sf.flight_date <  '1999-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-11-01'
+  AND flight_date <  '1999-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-11-01'
+  AND sf.flight_date <  '1999-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 1999-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '1999-12-01'
+  AND flight_date <  '2000-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '1999-12-01'
+  AND sf.flight_date <  '2000-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-01-01'
+  AND flight_date <  '2000-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-01-01'
+  AND sf.flight_date <  '2000-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-02-01'
+  AND flight_date <  '2000-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-02-01'
+  AND sf.flight_date <  '2000-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-03-01'
+  AND flight_date <  '2000-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-03-01'
+  AND sf.flight_date <  '2000-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-04-01'
+  AND flight_date <  '2000-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-04-01'
+  AND sf.flight_date <  '2000-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-05-01'
+  AND flight_date <  '2000-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-05-01'
+  AND sf.flight_date <  '2000-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-06-01'
+  AND flight_date <  '2000-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-06-01'
+  AND sf.flight_date <  '2000-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-07-01'
+  AND flight_date <  '2000-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-07-01'
+  AND sf.flight_date <  '2000-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-08-01'
+  AND flight_date <  '2000-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-08-01'
+  AND sf.flight_date <  '2000-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-09-01'
+  AND flight_date <  '2000-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-09-01'
+  AND sf.flight_date <  '2000-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-10-01'
+  AND flight_date <  '2000-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-10-01'
+  AND sf.flight_date <  '2000-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-11-01'
+  AND flight_date <  '2000-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-11-01'
+  AND sf.flight_date <  '2000-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2000-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2000-12-01'
+  AND flight_date <  '2001-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2000-12-01'
+  AND sf.flight_date <  '2001-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-01-01'
+  AND flight_date <  '2001-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-01-01'
+  AND sf.flight_date <  '2001-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-02-01'
+  AND flight_date <  '2001-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-02-01'
+  AND sf.flight_date <  '2001-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-03-01'
+  AND flight_date <  '2001-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-03-01'
+  AND sf.flight_date <  '2001-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-04-01'
+  AND flight_date <  '2001-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-04-01'
+  AND sf.flight_date <  '2001-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-05-01'
+  AND flight_date <  '2001-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-05-01'
+  AND sf.flight_date <  '2001-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-06-01'
+  AND flight_date <  '2001-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-06-01'
+  AND sf.flight_date <  '2001-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-07-01'
+  AND flight_date <  '2001-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-07-01'
+  AND sf.flight_date <  '2001-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-08-01'
+  AND flight_date <  '2001-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-08-01'
+  AND sf.flight_date <  '2001-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-09-01'
+  AND flight_date <  '2001-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-09-01'
+  AND sf.flight_date <  '2001-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-10-01'
+  AND flight_date <  '2001-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-10-01'
+  AND sf.flight_date <  '2001-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-11-01'
+  AND flight_date <  '2001-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-11-01'
+  AND sf.flight_date <  '2001-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2001-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2001-12-01'
+  AND flight_date <  '2002-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2001-12-01'
+  AND sf.flight_date <  '2002-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-01-01'
+  AND flight_date <  '2002-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-01-01'
+  AND sf.flight_date <  '2002-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-02-01'
+  AND flight_date <  '2002-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-02-01'
+  AND sf.flight_date <  '2002-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-03-01'
+  AND flight_date <  '2002-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-03-01'
+  AND sf.flight_date <  '2002-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-04-01'
+  AND flight_date <  '2002-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-04-01'
+  AND sf.flight_date <  '2002-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-05-01'
+  AND flight_date <  '2002-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-05-01'
+  AND sf.flight_date <  '2002-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-06-01'
+  AND flight_date <  '2002-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-06-01'
+  AND sf.flight_date <  '2002-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-07-01'
+  AND flight_date <  '2002-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-07-01'
+  AND sf.flight_date <  '2002-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-08-01'
+  AND flight_date <  '2002-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-08-01'
+  AND sf.flight_date <  '2002-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-09-01'
+  AND flight_date <  '2002-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-09-01'
+  AND sf.flight_date <  '2002-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-10-01'
+  AND flight_date <  '2002-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-10-01'
+  AND sf.flight_date <  '2002-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-11-01'
+  AND flight_date <  '2002-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-11-01'
+  AND sf.flight_date <  '2002-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2002-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2002-12-01'
+  AND flight_date <  '2003-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2002-12-01'
+  AND sf.flight_date <  '2003-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-01-01'
+  AND flight_date <  '2003-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-01-01'
+  AND sf.flight_date <  '2003-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-02-01'
+  AND flight_date <  '2003-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-02-01'
+  AND sf.flight_date <  '2003-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-03-01'
+  AND flight_date <  '2003-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-03-01'
+  AND sf.flight_date <  '2003-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-04-01'
+  AND flight_date <  '2003-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-04-01'
+  AND sf.flight_date <  '2003-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-05-01'
+  AND flight_date <  '2003-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-05-01'
+  AND sf.flight_date <  '2003-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-06-01'
+  AND flight_date <  '2003-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-06-01'
+  AND sf.flight_date <  '2003-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-07-01'
+  AND flight_date <  '2003-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-07-01'
+  AND sf.flight_date <  '2003-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-08-01'
+  AND flight_date <  '2003-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-08-01'
+  AND sf.flight_date <  '2003-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-09-01'
+  AND flight_date <  '2003-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-09-01'
+  AND sf.flight_date <  '2003-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-10-01'
+  AND flight_date <  '2003-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-10-01'
+  AND sf.flight_date <  '2003-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-11-01'
+  AND flight_date <  '2003-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-11-01'
+  AND sf.flight_date <  '2003-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2003-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2003-12-01'
+  AND flight_date <  '2004-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2003-12-01'
+  AND sf.flight_date <  '2004-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-01-01'
+  AND flight_date <  '2004-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-01-01'
+  AND sf.flight_date <  '2004-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-02-01'
+  AND flight_date <  '2004-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-02-01'
+  AND sf.flight_date <  '2004-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-03-01'
+  AND flight_date <  '2004-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-03-01'
+  AND sf.flight_date <  '2004-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-04-01'
+  AND flight_date <  '2004-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-04-01'
+  AND sf.flight_date <  '2004-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-05-01'
+  AND flight_date <  '2004-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-05-01'
+  AND sf.flight_date <  '2004-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-06-01'
+  AND flight_date <  '2004-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-06-01'
+  AND sf.flight_date <  '2004-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-07-01'
+  AND flight_date <  '2004-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-07-01'
+  AND sf.flight_date <  '2004-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-08-01'
+  AND flight_date <  '2004-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-08-01'
+  AND sf.flight_date <  '2004-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-09-01'
+  AND flight_date <  '2004-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-09-01'
+  AND sf.flight_date <  '2004-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-10-01'
+  AND flight_date <  '2004-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-10-01'
+  AND sf.flight_date <  '2004-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-11-01'
+  AND flight_date <  '2004-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-11-01'
+  AND sf.flight_date <  '2004-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2004-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2004-12-01'
+  AND flight_date <  '2005-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2004-12-01'
+  AND sf.flight_date <  '2005-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-01-01'
+  AND flight_date <  '2005-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-01-01'
+  AND sf.flight_date <  '2005-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-02-01'
+  AND flight_date <  '2005-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-02-01'
+  AND sf.flight_date <  '2005-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-03-01'
+  AND flight_date <  '2005-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-03-01'
+  AND sf.flight_date <  '2005-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-04-01'
+  AND flight_date <  '2005-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-04-01'
+  AND sf.flight_date <  '2005-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-05-01'
+  AND flight_date <  '2005-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-05-01'
+  AND sf.flight_date <  '2005-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-06-01'
+  AND flight_date <  '2005-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-06-01'
+  AND sf.flight_date <  '2005-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-07-01'
+  AND flight_date <  '2005-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-07-01'
+  AND sf.flight_date <  '2005-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-08-01'
+  AND flight_date <  '2005-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-08-01'
+  AND sf.flight_date <  '2005-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-09-01'
+  AND flight_date <  '2005-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-09-01'
+  AND sf.flight_date <  '2005-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-10-01'
+  AND flight_date <  '2005-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-10-01'
+  AND sf.flight_date <  '2005-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-11-01'
+  AND flight_date <  '2005-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-11-01'
+  AND sf.flight_date <  '2005-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2005-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2005-12-01'
+  AND flight_date <  '2006-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2005-12-01'
+  AND sf.flight_date <  '2006-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-01-01'
+  AND flight_date <  '2006-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-01-01'
+  AND sf.flight_date <  '2006-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-02-01'
+  AND flight_date <  '2006-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-02-01'
+  AND sf.flight_date <  '2006-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-03-01'
+  AND flight_date <  '2006-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-03-01'
+  AND sf.flight_date <  '2006-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-04-01'
+  AND flight_date <  '2006-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-04-01'
+  AND sf.flight_date <  '2006-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-05-01'
+  AND flight_date <  '2006-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-05-01'
+  AND sf.flight_date <  '2006-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-06-01'
+  AND flight_date <  '2006-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-06-01'
+  AND sf.flight_date <  '2006-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-07-01'
+  AND flight_date <  '2006-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-07-01'
+  AND sf.flight_date <  '2006-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-08-01'
+  AND flight_date <  '2006-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-08-01'
+  AND sf.flight_date <  '2006-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-09-01'
+  AND flight_date <  '2006-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-09-01'
+  AND sf.flight_date <  '2006-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-10-01'
+  AND flight_date <  '2006-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-10-01'
+  AND sf.flight_date <  '2006-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-11-01'
+  AND flight_date <  '2006-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-11-01'
+  AND sf.flight_date <  '2006-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2006-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2006-12-01'
+  AND flight_date <  '2007-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2006-12-01'
+  AND sf.flight_date <  '2007-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-01-01'
+  AND flight_date <  '2007-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-01-01'
+  AND sf.flight_date <  '2007-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-02-01'
+  AND flight_date <  '2007-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-02-01'
+  AND sf.flight_date <  '2007-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-03-01'
+  AND flight_date <  '2007-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-03-01'
+  AND sf.flight_date <  '2007-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-04-01'
+  AND flight_date <  '2007-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-04-01'
+  AND sf.flight_date <  '2007-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-05
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-05-01'
+  AND flight_date <  '2007-06-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-05-01'
+  AND sf.flight_date <  '2007-06-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-06
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-06-01'
+  AND flight_date <  '2007-07-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-06-01'
+  AND sf.flight_date <  '2007-07-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-07
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-07-01'
+  AND flight_date <  '2007-08-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-07-01'
+  AND sf.flight_date <  '2007-08-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-08
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-08-01'
+  AND flight_date <  '2007-09-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-08-01'
+  AND sf.flight_date <  '2007-09-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-09
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-09-01'
+  AND flight_date <  '2007-10-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-09-01'
+  AND sf.flight_date <  '2007-10-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-10
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-10-01'
+  AND flight_date <  '2007-11-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-10-01'
+  AND sf.flight_date <  '2007-11-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-11
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-11-01'
+  AND flight_date <  '2007-12-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-11-01'
+  AND sf.flight_date <  '2007-12-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2007-12
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2007-12-01'
+  AND flight_date <  '2008-01-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2007-12-01'
+  AND sf.flight_date <  '2008-01-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2008-01
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2008-01-01'
+  AND flight_date <  '2008-02-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2008-01-01'
+  AND sf.flight_date <  '2008-02-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2008-02
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2008-02-01'
+  AND flight_date <  '2008-03-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2008-02-01'
+  AND sf.flight_date <  '2008-03-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2008-03
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2008-03-01'
+  AND flight_date <  '2008-04-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2008-03-01'
+  AND sf.flight_date <  '2008-04-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;
+
+-- ============================
+-- 2008-04
+-- ============================
+
+DELETE FROM flights_fact_daily
+WHERE flight_date >= '2008-04-01'
+  AND flight_date <  '2008-05-01';
+
+INSERT INTO flights_fact_daily
+SELECT
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id,
+
+    COUNT(*) AS total_flights,
+    SUM(sf.cancelled) AS cancelled_flights,
+    SUM(sf.diverted) AS diverted_flights,
+    AVG(sf.dep_delay) AS avg_dep_delay,
+    AVG(sf.arr_delay) AS avg_arr_delay,
+    SUM(sf.distance) AS total_distance
+
+FROM staging_flights sf
+JOIN airlines_dim a ON sf.airline_code = a.airline_code
+JOIN airports_dim ao ON sf.origin = ao.airport_code
+JOIN airports_dim ad ON sf.dest = ad.airport_code
+WHERE sf.flight_date >= '2008-04-01'
+  AND sf.flight_date <  '2008-05-01'
+GROUP BY
+    sf.flight_date,
+    a.airline_id,
+    ao.airport_id,
+    ad.airport_id;
+
+COMMIT;

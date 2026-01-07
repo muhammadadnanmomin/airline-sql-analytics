@@ -1,0 +1,55 @@
+# Environment
+.env
+.env.*
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Data
+data/raw/*.csv
+data/raw/*.tsv
+data/raw/*.txt
+
+# Database Dumps / Artifacts
+*.sql.dump
+*.db
+*.sqlite
+
+# Streamlit
+.streamlit/
+.streamlit/secrets.toml
+
+# Python Build / Cache
+build/
+dist/
+*.egg-info/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary / Backup Files
+*.bak
+*.tmp
+*~

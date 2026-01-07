@@ -1,0 +1,25 @@
+daily_rows
+33120612
+monthly_rows
+3208
+
+min_date	max_date
+1987-10-01	2008-04-30
+
+daily_total
+118694837
+monthly_total
+118694837
+
+negative_delay_rows
+1444
+
+airlines_in_fact
+29
+airlines_dim_count
+1490
+
+airports_in_fact
+315
+airports_dim_count
+315
