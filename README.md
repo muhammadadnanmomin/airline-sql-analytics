@@ -1,55 +1,53 @@
 # Airline SQL Analytics
+End-to-End Data Engineering & Analytics System (120M+ Records)
 
-End-to-End Data Engineering & Analytics Project (120M+ Records)
-
-## Project Overview
-
-This project is a full-scale airline performance analytics system built on top of the US Airline On-Time Performance dataset (1987–2008).
-It demonstrates how large, raw aviation data can be transformed into reliable, business-ready KPIs using SQL, Python, and modern analytics practices.
-
-> **Note:**  
-> This project focuses on analytical workloads and KPI generation, not transactional (OLTP) operations.
-
-#### The project goes beyond writing SQL queries and focuses on:
-
-- Scalable ETL design
-- Analytical schema modeling
-- Statistically correct KPI computation
-- Materialized analytics for low-latency dashboards
-
-## Business Problem
+## Problem Statement
 
 Airline operations generate massive volumes of data, but raw flight records alone do not answer critical business questions such as:
 
-- Which airlines perform best after accounting for scale?
-- Which routes are most delayed or unreliable?
+- Which airlines truly perform best after accounting for scale?
+- Which routes are most unreliable?
 - Which airports consistently cause congestion?
-- How does airline performance change over time?
+- How does performance change over time?
 
-The challenge is to compute these insights correctly and efficiently on 120M+ flight records, without biased averages or performance bottlenecks.
+Naively computing averages on large datasets often produces biased and misleading insights.
 
-## Dataset Description
+This project builds a full-scale analytical system to transform 120M+ raw flight records into statistically correct, business-ready KPIs using modern data engineering and analytics best practices.
 
-- Source: US Airline On-Time Performance Data
+## Why This Project Matters
 
-- Coverage: October 1987 – April 2008
+Most SQL projects stop at writing queries.
 
-- Scale:
+This project demonstrates:
 
-     ~120 million flight records
+- Large-scale ETL design
+- Analytical schema modeling
+- Correct KPI engineering
+- Weighted aggregations
+- Query performance optimization
+- Materialized analytics
+- BI-ready outputs
 
-     ~12 GB uncompressed
+It reflects how real-world analytical data warehouses are designed.
 
-- Raw Files:
+## Dataset
 
-     airline.csv – flight-level data
+**Source**: US Airline On-Time Performance Data
 
-     carriers.csv – airline metadata
+**Coverage**: October 1987 – April 2008
 
-Due to the dataset size, the project is designed to run on limited hardware using chunk-based ETL and SQL-side aggregation.
+#### Scale:
+- ~120 million flight records
+- ~12 GB uncompressed
+
+#### Raw Files
+
+- airline.csv – flight-level facts
+- carriers.csv – airline metadata
+
+Due to the dataset size, the entire pipeline is designed to run on limited hardware using chunk-based ingestion and SQL-side aggregation.
 
 ## System Architecture
-
 ```
 Raw CSV Data
      ↓
@@ -61,7 +59,7 @@ Fact & Dimension Tables
      ↓
 Analytical Views
      ↓
-KPI Queries (Weighted Metrics)
+Weighted KPI Queries
      ↓
 Materialized KPI Tables
      ↓
@@ -70,10 +68,11 @@ Parquet Exports
 Streamlit Dashboard
 ```
 
-## Database Schema (MySQL)
+This design mimics a modern analytics warehouse architecture.
 
-The core analytical model follows a **star schema design**, with centralized fact tables and conformed dimensions.  
-Downstream KPI tables are materialized for performance and dashboard efficiency.
+## Data Modeling (MySQL)
+
+The core analytical model follows a star schema design with centralized fact tables and conformed dimensions.
 
 ### Core Tables
 
@@ -94,141 +93,156 @@ Downstream KPI tables are materialized for performance and dashboard efficiency.
 
 ### Analytical Views (Semantic Layer)
 
-- `v_airline_performance`
-- `v_route_performance`
-- `v_airport_performance`
+- v_airline_performance
+- v_route_performance
+- v_airport_performance
 
-This design follows dimensional modeling best practices commonly used in analytical data warehouses.
+This semantic layer ensures consistency and reproducibility of metrics.
 
 ## Data Engineering Pipeline
-
 ### 1. Data Exploration & Schema Understanding
 
-Initial exploration using Pandas to understand:
-- Column meanings
+Explored the raw dataset using Pandas to understand:
+
+- Column semantics
 - Data quality
 - Missing values
 - Scale constraints
 
-python/01_explore_data.ipynb
+> Notebook: python/01_explore_data.ipynb
 
-### 2. Schema Design (Analytics-Oriented)
+### 2. Analytics-Oriented Schema Design
 
-Designed a normalized analytical schema consisting of:
-- Dimension tables: airlines, airports
-- Fact table: daily flight-level facts
-- Optimized for aggregation-heavy workloads
+Designed a normalized star-schema-based model optimized for aggregation-heavy workloads:
 
-sql/schema/
+- Fact tables for flight-level data
+- Dimension tables for airlines and airports
+
+> SQL: sql/schema/
 
 ### 3. Data Cleaning & Transformation
 
-- Parsed and standardized dates
-- Derived analytics-specific fields
-- Resolved encoding and missing-value issues
+- Standardized dates
+- Derived analytics-specific features
+- Resolved encoding and missing values
 - Converted raw data into SQL-ready format
 
-python/02_load_to_staging.ipynb
+> Notebook: python/02_load_to_staging.ipynb
 
 ### 4. Chunk-Based ETL (120M+ Rows)
 
 - Implemented chunk-based ingestion to avoid memory overflows
-- Handled long-running jobs safely
+- Safely handled long-running jobs
 - Loaded ~123M records into MySQL in ~4 hours on a personal machine
 
-python/03_generate_etl_sql.ipynb
-sql/staging/
+> Notebook: python/03_generate_etl_sql.ipynb
+> SQL: sql/staging/
 
 ### 5. Fact Table Construction & Aggregation
 
 - Built daily fact tables
-- Generated month-wise aggregation SQL automatically
-- Added indexes to support fast analytics queries
+- Auto-generated monthly aggregation SQL
+- Added indexes for query acceleration
 
-sql/staging/
+## KPI Engineering (Statistical Correctness)
+### Why Weighted KPIs?
 
-## Analytics & KPI Design
-Why Weighted KPIs?
+Simple averages are misleading when entities have different volumes.
 
-Simple averages produce misleading results when airlines or routes have different flight volumes.
-
-This project uses weighted metrics to ensure fairness and statistical correctness.
+This system uses weighted aggregations to ensure fairness and statistical correctness.
 
 ### Airline Performance KPIs
 
 - Total flights (volume-aware ranking)
-- Weighted average departure delay
-- Weighted average arrival delay
+- Weighted avg departure delay
+- Weighted avg arrival delay
 - Cancellation rate (%)
 - Diversion rate (%)
-- Composite performance score (lower = better)
+- Composite performance score
 - Monthly performance trends
 
-sql/kpis/airline_performance_kpis.sql
+> SQL: sql/kpis/airline_performance_kpis.sql
 
 ### Route & Airport KPIs
 
-- Busiest routes by volume
+- Busiest routes
 - Most delayed routes (weighted)
-- Route reliability (cancellation rate)
+- Route reliability
 - Busiest airports
 - Worst airports by arrival delay
 
-sql/kpis/route_&_airport_performance_kpis.sql
+> SQL: sql/kpis/route_&_airport_performance_kpis.sql
 
 ## Validation & Reliability
 
-To ensure trust in results:
+To ensure correctness:
 
-- Validation queries were written to cross-check aggregates
-- Analytical views were used for reproducibility
-- KPI outputs were manually verified before materialization
+- Validation queries were written
+- Aggregates were cross-checked
+- Views ensured reproducibility
+- KPIs were manually verified before materialization
 
-sql/validation/
-sql/views/
+## KPI Materialization & Optimization
 
-## KPI Materialization & Performance Optimization
+- KPIs initially computed using ad-hoc SQL
+- Final KPIs materialized into summary tables
+- Results exported to Parquet for fast downstream access
 
-- KPIs initially computed using ad-hoc SQL for validation
-- Final KPIs were materialized into summary tables
-- Results exported to Parquet format for fast downstream access
-
-sql/materialization/
-data/parquet/
+Folders:
+> sql/materialization/
+> data/parquet/
 
 ## Visualization & Dashboard
-
-### Python Visualizations
-
-- Static KPI plots for exploration and reporting
-- Built using Matplotlib, Seaborn, and Plotly
-
-python/04_airline_kpi_visuals.ipynb
-python/05_route_airport_visuals.ipynb
-visuals/
-
-## Streamlit Dashboard
-
-An interactive dashboard showcasing:
+### Static Visualizations
 
 - Airline KPIs
 - Route KPIs
 - Airport KPIs
 - Monthly trends
 
-The dashboard reads only Parquet files, ensuring instant load times.
+Built using Matplotlib, Seaborn, and Plotly.
 
-app.py
+### Streamlit Dashboard
+
+An interactive dashboard displaying:
+
+- Airline performance
+- Route performance
+- Airport congestion
+- Monthly trends
+
+The dashboard reads only Parquet files for instant load times.
 
 ## Tech Stack
+### Data Engineering & Analytics
 
-- Data Processing: Pandas
-- Database: MySQL
-- SQL: Advanced analytics, views, indexing, materialization
-- ETL: Python (chunk-based ingestion)
-- Visualization: Matplotlib, Seaborn, Plotly
-- Dashboard: Streamlit
-- Storage Format: Parquet (PyArrow)
+- Python (Pandas)
+- MySQL
+- SQL (views, indexing, materialization)
+- Chunk-based ETL
+
+### Visualization
+
+- Matplotlib
+- Seaborn
+- Plotly
+
+### Dashboard
+
+- Streamlit
+
+### Storage
+
+- Parquet (PyArrow)
+
+## Key Learnings
+
+- Designing analytical schemas at scale
+- Avoiding biased KPIs
+- Why weighted metrics matter
+- Chunk-based ETL strategies
+- Building BI-ready analytics layers
+- Separating OLTP vs OLAP workloads
 
 ## Author
 
